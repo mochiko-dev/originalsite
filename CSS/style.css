@@ -1,0 +1,785 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+}
+
+/* index.hyml */
+
+body {
+  color: #333;
+  font-size: 0.875rem;
+  min-height: 100vh;
+  position: relative;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left:0;
+  right:0;
+  z-index: 10;
+  background-color: #fff
+}
+
+.header-logo a {
+  font-size: 23px;
+  align-items: center;
+  padding-left: 25px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  color: #fff;
+  padding: 50px 50px;
+  
+  transition: all 0.5s;
+  z-index: 20;
+  opacity: 0;
+}
+
+nav a {
+  color: #fff;
+}
+
+nav li {
+  margin-bottom: 25px;
+}
+
+.open nav {
+  left: 0;
+  opacity: 1;
+}
+
+.hamburger {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 1%;
+  z-index: 30;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hamburger:hover {
+  opacity: 0.7;
+}
+.hamburger span {
+  width: 50%;
+  height: 2px;
+  background: #000000;
+  position: absolute;
+  left: 25%;
+  transition: 0.3s;
+}
+.hamburger span:nth-child(1) {
+  top: 34%;
+}
+
+.hamburger span:nth-child(2) {
+  top: 48%;
+}
+
+.hamburger span:nth-child(3) {
+  top: 62%;
+}
+
+.open .hamburger span:nth-child(1) {
+  top: 47%;
+  background: #fff;
+  transform: rotate(-45deg);
+}
+
+.open .hamburger span:nth-child(2),
+.open .hamburger span:nth-child(3) {
+  top: 47%;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.mask {
+  display: none;
+  transition: .5s;
+}
+
+.open .mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.mainvisual {
+  width: 100%;
+  height: calc(100vh - 50px);
+}
+
+.mainvisual img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.main-logo {
+  font-size: 70px;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  top: 40vh;
+  left: 30vw;
+}
+
+#brandlist {
+  margin-top: 150px;
+}
+
+#brandlist ul {
+  display: grid;
+  grid-template-columns: repeat(5 , 1fr);
+  gap: 10px;
+  padding: 0 50px;
+ 
+}
+
+#brandlist ul li {
+  width: 100%;
+  height: 80px;
+  background-color: #ddd;
+}
+
+#brandlist ul li:hover {
+  opacity: 0.8;
+}
+
+#brandlist ul li a {
+  line-height: 80px;
+  display: block;
+  text-align: center;
+}
+
+#brandlist p {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#brandlist p a {
+  border-bottom: 1px solid #333;
+  font-size: 10px;
+}
+
+#brandlist p a:hover {
+  opacity: 0.8;
+}
+
+#itemlist {
+  margin-top: 150px;
+}
+
+.itemlist-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  margin-bottom: 50px;
+}
+
+.itemlist p {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.itemlist-menu ul {
+  display: flex;
+}
+
+.itemlist-menu ul a {
+  margin-left: 15px;
+}
+
+.itemlist-menu ul a:hover {
+  border-bottom: 1px solid #333;
+}
+
+.itemlist-menu {
+  border-bottom: 1px solid #333;
+  margin-top: 10px;
+}
+
+.clothes {
+  display: flex;
+  padding: 0 2%;
+}
+
+.clothes-left {
+  width: 50%;
+  margin-right: 20px;
+}
+
+.clothes-left img {
+  max-width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
+
+.clothes-right {
+  display: grid;
+  grid-template-columns: repeat(4 , 1fr);
+  gap: 20px;
+}
+
+.clothes-right li {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.clothes li img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.fadeUp{
+  animation-name:fadeUpAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  }
+  
+  @keyframes fadeUpAnime{
+    from {
+      opacity: 0;
+    transform: translateY(100px);
+    }
+  
+    to {
+      opacity: 1;
+    transform: translateY(0);
+    }
+  }
+  
+   
+.fadeUpTrigger{
+  opacity: 0;
+}
+  
+
+#itemlist p {
+  text-align: center;
+}
+
+#itemlist p a {
+  border-bottom: 1px solid #333;
+  font-size: 10px;
+  text-align: center;
+}
+
+#footer {
+  margin-top: 150px;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+#footer ul {
+  padding: 30px 0 20px 0;
+}
+
+#footer li {
+  margin-bottom: 10px;
+}
+
+/* brandlist.html */
+
+.brandlist-logo {
+  margin-top: 100px;
+  padding-left: 25px;
+  font-weight: bold;
+}
+
+.brandlist-all {
+  display: flex;
+  justify-content: space-around;
+}
+
+.theme {
+  font-weight: bold;
+}
+
+.brandlist-all ul {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.brandlist-all li {
+  line-height: 40px;
+}
+
+.fadeUp {
+  opacity: 0;
+}
+
+.fadeUp {
+animation-name:fadeUpAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brandlist1 {
+ animation-delay: 1s;
+}
+
+.brandlist2 {
+ animation-delay: 1.2s;
+}
+
+.brandlist3 {
+  animation-delay: 1.4s;
+}
+
+.brandlist4 {
+  animation-delay: 1.6s;
+}
+
+/* itemlist.html */
+
+.itemlist-logo {
+  margin-top: 100px;
+  padding-left: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.accordion-area{
+  list-style: none;
+  width: 96%;
+  margin:0 auto;
+}
+
+.accordion-area li{
+  margin: 0px 0;
+}
+
+.accordion-area section {
+  border-top: 1px solid #333;
+  padding: 20px 0;
+}
+
+.itemlist-left .title {
+  margin-bottom: 10px;
+  width: 200px;
+  padding-bottom: 0px;
+}
+
+.itemlist-left .filter {
+  padding-bottom: 10px;
+  width: 200px;
+}
+
+.item-flex {
+  display: flex;
+  width: 100%;
+  padding: 0 2%;
+  gap: 10px;
+}
+
+.itemlist-left {
+  width: 20%;
+}
+
+.title {
+  position: relative;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+.title::before,
+.title::after{
+  position: absolute;
+  content:'';
+  width: 10px;
+  height: 1px;
+  background-color: #333;
+}
+
+.title::before{
+  top:50%;
+  left: 185px;
+  transform: rotate(0deg);
+}
+
+.title::after{    
+  top:50%;
+  left: 185px;
+  transform: rotate(90deg);
+
+}
+
+.close .title::before{
+transform: rotate(45deg);
+}
+
+.close .title::after{
+transform: rotate(-45deg);
+}
+
+.box {
+  display: none;
+  margin:0 3% 3% 3%;
+  padding: 3%;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; 
+  height: 30px;
+  border-bottom: 1px solid #333;
+}
+
+.itemlist-right-flex {
+  display: flex;
+  width: 100%;
+}
+
+.item-right {
+  display: flex;
+}
+
+.item-right p {
+  margin-left: 20px;
+}
+
+.item-right p:nth-child(3) {
+  margin: 3% 0 0 70px;
+}
+
+.item-clothes ul {
+  display: grid;
+  grid-template-columns: repeat(4 , 1fr);
+  gap: 20px;
+}
+
+.item-clothes li {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.item-clothes li img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.itemlist-right {
+  margin: 0 auto;
+}
+
+.item-clothes {
+  margin-top: 50px;
+}
+
+.paging {
+  display: flex;
+  justify-content: center;
+}
+
+.paging p {
+  margin: 0 10px;
+}
+
+.paging p:nth-child(n+2) {
+  opacity: 0.5;
+}
+
+.paging p:nth-child(1) {
+  border-bottom: 1px solid #333;
+}
+
+.paging p:nth-child(2):hover,
+.paging p:nth-child(3):hover,
+.paging p:nth-child(n+5):hover {
+  opacity: 1;
+  border-bottom: 1px solid #333;
+  transition: 0.5s;
+}
+
+.paging p:nth-child(4):hover {
+  opacity: 1;
+}
+
+.product-flex {
+  display: flex;
+  padding: 0 2%;
+  margin-top: 100px;
+}
+
+.product-right .btn a:hover {
+  color: #333;
+}
+
+.product-left {
+  width: 50%;
+}
+
+.product-left img {
+  width: auto;
+  height: calc(100vh - 50px);
+  text-align: center;
+  padding-left: 50px;
+}
+
+.product-right {
+  margin: 0 auto;
+  padding-top: 15%;
+  letter-spacing: 3px;
+  width: 30%;
+  line-height: 30px;
+}
+
+.product-right p:nth-child(3) {
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.product-right dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.product-right dl dt {
+  width: 50%;
+}
+
+.product-right dl dd {
+  width: 50%;
+}
+
+.btn {
+  width: 100%;
+  height: 50px;
+  background-color: #333;
+  margin-top: 30px;
+}
+
+.btn a {
+  display: block;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+}
+
+.contact-logo {
+  margin-top: 100px;
+  padding-left: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.contact-form dl dt {
+  margin-bottom: 10px;
+}
+
+.contact-form dl dd {
+  border: 1px solid #333;
+  margin-bottom: 25px;
+  line-height: 40px;
+}
+
+.btn {
+  margin-top: 100px;
+  border: 1px solid #333;
+}
+
+.btn input {
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.btn:hover {
+  background-color: #fff;
+  transition: 0.5s;
+}
+
+.btn input:hover {
+  color: #333;
+  transition: 0.5s;
+}
+
+.login-logo {
+  margin-top: 100px;
+  padding-left: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.login-form dl dt {
+  margin-bottom: 10px;
+}
+
+.login-form dl dd {
+  border: 1px solid #333;
+  margin-bottom: 25px;
+  line-height: 40px;
+}
+
+
+.login-form p {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.login-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-flex a {
+  width: 47%;
+  line-height: 50px;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+.login-flex a:nth-child(1) {
+  background-color: #333;
+  color:#fff;
+}
+
+.login-flex a:nth-child(1):hover {
+  background-color: #fff;
+  color: #333;
+  transition: 0.5s;
+}
+
+.login-flex a:nth-child(2):hover {
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.splashbg{
+  display: none;
+}
+
+body .splashbg{
+  display: block;
+  content: "";
+  position:fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  background-color: #333;
+  animation-name:PageAnime;
+  animation-duration:1.2s;
+  animation-timing-function:ease-in-out;
+  animation-fill-mode:forwards;
+}
+
+@keyframes PageAnime{
+0% {
+  transform-origin:left;
+  transform:scaleX(0);
+}
+50% {
+  transform-origin:left;
+  transform:scaleX(1);
+}
+50.001% {
+  transform-origin:right;
+}
+100% {
+  transform-origin:right;
+  transform:scaleX(0);
+}
+}
+
+body {
+opacity: 0;
+}
+
+body  {
+animation-name:PageAnimeAppear;
+animation-duration:1s;
+animation-delay: 0.8s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+
+@keyframes PageAnimeAppear{
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
